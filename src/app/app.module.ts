@@ -11,9 +11,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),

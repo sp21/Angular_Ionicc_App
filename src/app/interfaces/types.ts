@@ -14,3 +14,7 @@ export interface Activity {
   category: string;
   keywords: string;
 }
+export interface LoginCredential {
+  email: string;
+  password: string;
+}
