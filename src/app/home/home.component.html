@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Home </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--here async pipe is used becasue the activityList is observable async will
+return a list-->
+<div *ngIf="!activityList">
+  <ion-card>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-card-header>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text class="skeleton-image" animated></ion-skeleton-text>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-card-header>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text class="skeleton-image" animated></ion-skeleton-text>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-card-header>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text class="skeleton-image" animated></ion-skeleton-text>
+    </ion-card-header>
+  </ion-card>
+</div>
+<ion-card
+  [routerLink]="['activity-detail', activity.id]"
+  button
+  *ngFor="let activity of activityList | async"
+>
+  <ion-card-content>
+    <ion-card-header>
+      <ion-card-title>{{ activity.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-img [src]="activity.cropped"></ion-img>
+  </ion-card-content>
+</ion-card>

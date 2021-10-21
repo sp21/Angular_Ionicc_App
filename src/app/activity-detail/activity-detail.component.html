@@ -1,0 +1,86 @@
+<div *ngIf="!activityDetail">
+  <ion-header>
+    <ion-toolbar>
+      <ion-skeleton-text class="skeleton-header" animated></ion-skeleton-text>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card>
+    <ion-skeleton-text class="skeleton-image" animated></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-card-header>
+      <ion-skeleton-text
+        class="skeleton-description"
+        animated
+      ></ion-skeleton-text>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-skeleton-text class="skeleton-list" animated></ion-skeleton-text>
+      </ion-item>
+      <ion-item>
+        <ion-skeleton-text class="skeleton-list" animated></ion-skeleton-text>
+      </ion-item>
+      <ion-item>
+        <ion-skeleton-text class="skeleton-list" animated></ion-skeleton-text>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</div>
+<div *ngIf="activityDetail">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card no-margin>
+    <ion-img [src]="(activityDetail | async)?.image"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ (activityDetail | async)?.name }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ (activityDetail | async)?.description }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Duration</ion-label>
+        <ion-chip color="primary">{{
+          (activityDetail | async)?.duration
+        }}</ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-chip color="primary">{{
+          (activityDetail | async)?.category
+        }}</ion-chip>
+      </ion-item>
+      <ion-item>
+        <ion-label>Popularity</ion-label>
+        <ion-chip color="primary">{{
+          (activityDetail | async)?.popularity
+        }}</ion-chip>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="bottom">
+      <ion-fab-button (click)="openModal()">
+        <ion-icon color="success" name="play"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="share()">
+        <ion-icon color="dark" name="share"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</div>

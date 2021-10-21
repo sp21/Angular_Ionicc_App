@@ -1,0 +1,16 @@
+<ion-content>
+  <video autoplay class="activity-video">
+    <source [src]="videoURL" />
+  </video>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title lines="none"> Activity Video Modal </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
